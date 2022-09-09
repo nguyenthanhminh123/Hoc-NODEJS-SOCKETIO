@@ -8,6 +8,10 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 server.listen(2004);
 
+io.on("connection", function(socket){
+    console.log(" Béo đã kết nối " + socket.id)
+});
+
 app.get("/", function(req, res) {
     res.render("trangchu");
 })
