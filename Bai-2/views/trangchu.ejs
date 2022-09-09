@@ -8,15 +8,15 @@
             var socket = io("http://localhost:3000");
             socket.on('SERVER-SEND-MAU', function(data){
                 $('body').attr('bgColor',data)
-            })
+            });
             $(document).ready(function(){
-                $("do").click(function(){
+                $("#do").click(function(){
                     socket.emit("CLIENT-SEND-MAU","red");
                 });
-                $("xanh").click(function(){
+                $("#xanh").click(function(){
                     socket.emit("CLIENT-SEND-MAU","blue");
                 });
-                $("vang").click(function(){
+                $("#vang").click(function(){
                     socket.emit("CLIENT-SEND-MAU","yellow");
                 });
             });

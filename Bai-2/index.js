@@ -14,7 +14,7 @@ io.on("connection", function(socket){
 
     socket.on("CLIENT-SEND-MAU", function(data){
         console.log(data);
-        io.socket.emit('SERVER-SEND-MAU', data)
+        io.sockets.emit('SERVER-SEND-MAU', data)
     });
 });
 
