@@ -25,7 +25,7 @@ io.on("connection", function(socket){
     })
     socket.on("client_gui_message",function(data){
         io.sockets.emit(server_gui_mesage, {Username:socket.Username, msg:data})
-    })
+    });
 });
 
 app.get("/", function(req, res){
