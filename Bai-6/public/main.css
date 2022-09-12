@@ -1,0 +1,43 @@
+body{
+    background-color: #f7dfed;
+}
+h1{
+    background-color: #da6b6b;
+    text-align: center;
+}
+#left,#right {
+    min-height: 500px;
+    float: left;
+    margin-top: 10px;
+}
+
+#left{
+    width: 30%;
+    background: #eaf4b7;
+}
+#right{
+    width: 70%;
+    background-color: #80dfdf;
+}
+.block{
+    width: 100%;
+    clear: both;
+}
+
+
+
+#txtMessage, #btnChat{
+    float: left;
+    margin: 2px;
+}
+#txtMessage {
+    width: 70%;
+}
+#btnChat {
+    width: 25%;
+}
+#title {
+    background-color: #ccf900;
+    text-align: center;
+    padding: 5px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi</title>
+    <script src="jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io("http://localhost:3000");
+        socket.on("server-send-dangki-thatbai", function(data){
+        alert("User" + data + "Tài khoản đã đăng kí dcm !");
+        });
+        socket.on("server-send-dangki-thanhcong", function(data){
+            var s = "<div socketid='"+data.id+"'class='motUser'>" + data.username + "</div>";
+            $("#danhsachUserOnline").append(s);
+            // hide form dang ki user
+        })
+
+        $(document).ready(function(){
+            $("#btnDangki").click(function(){
+                socket.emit("client_gui_username", $("#txtUser").val())
+            })
+        })
+    </script>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Chào Mừng Đến Với Thuỷ Nguyên Vô Tận</h1>
+        <input type="text" id="txtUser" placeholder="Username"/>
+        <input type="button" id="btnDangki" value="Đăng Kí"/>
+        <div class="block"></div>
+        <div id="left">
+            <div id="title">Họ và Name</div>
+            <div id="danhsachUserOnline"></div>
+        </div>
+        <div id="right">
+            <input type="text" id="txtMessage" placeholder="Message..."/>
+            <input type="button" id="btnChat" value="Chat"/>
+        </div>
+    </div>
+</body>
+</html> 
