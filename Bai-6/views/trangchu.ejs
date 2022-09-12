@@ -17,10 +17,18 @@
             $("#danhsachUserOnline").append(s);
             // hide form dang ki user
         })
+        socket.on("server_gui_message", function(data){
+            var hoten = "<span class='hoten'>" + data.Username + "</span>";
+            var msg = "<span class='msg'>" + data.msg + "</span>";
+            $("#dsMsg").append(hoten + msg + "<div class='block'></div>");
+        })
 
         $(document).ready(function(){
             $("#btnDangki").click(function(){
                 socket.emit("client_gui_username", $("#txtUser").val())
+            })
+            $("#btnChat").click(function(){
+                socket.emit("client_gui_message", $("#txtMessage").val())
             })
         })
     </script>
@@ -39,6 +47,8 @@
         <div id="right">
             <input type="text" id="txtMessage" placeholder="Message..."/>
             <input type="button" id="btnChat" value="Chat"/>
+            <div class="block"></div>
+            <div id="dsMsg"></div>
         </div>
     </div>
 </body>

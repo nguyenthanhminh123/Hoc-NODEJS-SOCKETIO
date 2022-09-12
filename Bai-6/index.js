@@ -19,8 +19,12 @@ io.on("connection", function(socket){
             socket.emit("server-send-dangki-thatbai", + data);
         }else{
             mangUsersOnline.push(data)
+            socket.Username = data;
             io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
         }
+    })
+    socket.on("client_gui_message",function(data){
+        io.sockets.emit(server_gui_mesage, {Username:socket.Username, msg:data})
     })
 });
 
